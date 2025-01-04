@@ -41,13 +41,13 @@ export default function Home() {
   ];
   return (
     <main>
-      <section className="relative bg-gradient-to-b from-slate-900 via-blue-900 to-bg">
+      <section className="to-bg relative bg-gradient-to-b from-slate-900 via-blue-900">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
         <div className="relative">
           <div className="container px-4 py-8">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded-lg bg-white flex items-center justify-center font-bold">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white font-bold">
                   li
                 </div>
                 <span className="text-xl font-semibold text-primary-foreground">
@@ -85,13 +85,13 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-blue-400  hover:bg-blue-900/50"
+                  className="border-blue-400 hover:bg-blue-900/50"
                 >
                   Learn More
                 </Button>
               </div>
             </div>
-            <div className="relative h-40 md:h-80 w-full  mt-10">
+            <div className="relative mt-10 h-40 w-full md:h-80">
               <Image
                 src="/Ig-creators.png"
                 alt="Community member"
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="container w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section className="container w-full bg-background py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -112,7 +112,7 @@ export default function Home() {
               Select the perfect plan to boost your Instagram engagement
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 md:gap-8">
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
             {plans.map((plan, index) => (
               <Card key={index} className="flex flex-col justify-between">
                 <CardHeader>
