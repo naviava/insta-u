@@ -2,6 +2,7 @@
 
 import { LogoSmall } from "~/components/svg/logo-small";
 import { usePath } from "~/hooks/user-nav";
+import { Items } from "./items";
 
 interface IProps {
   slug: string;
@@ -15,6 +16,9 @@ export function Sidebar({ slug }: IProps) {
       <div className="backdrop--blur__safari flex h-full w-full flex-col gap-y-5 bg-[#0E0E0E] bg-opacity-90 bg-clip-padding p-3 backdrop-blur-3xl backdrop-filter">
         <div className="flex items-center justify-center gap-x-2 p-5">
           <LogoSmall />
+        </div>
+        <div className="flex flex-col py-3">
+          <Items />
         </div>
       </div>
     </div>
