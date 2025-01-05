@@ -1,3 +1,5 @@
+import { PAGE_ICON } from "~/constants/pages";
+
 interface IProps {
   page: string;
   slug?: string;
@@ -14,7 +16,10 @@ export function MainBreadcrumb({ page, slug }: IProps) {
           </div>
         </div>
       )}
-      <span className="radial--gradient inline-flex items-center gap-x-2 py-5 pr-16 lg:py-10"></span>
+      <span className="radial--gradient inline-flex items-center gap-x-2 py-5 pr-16 lg:py-10">
+        {PAGE_ICON[page.toUpperCase()]}
+        <h2 className="text-3xl font-semibold capitalize">{page}</h2>
+      </span>
     </div>
   );
 }
