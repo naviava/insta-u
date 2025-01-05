@@ -8,6 +8,7 @@ import { SubscriptionPlan } from "~/components/global/subscription-plan";
 import { CreateAutomation } from "~/components/global/create-automation";
 import { UpgradeCard } from "~/components/global/sidebar/upgrade-card";
 import { ClerkAuthState } from "~/components/global/clerk-auth-state";
+import { MainBreadcrumb } from "~/components/global/main-breadcrumb";
 import { Notifications } from "~/components/global/notifications";
 import { Items } from "~/components/global/sidebar/items";
 import { LogoSmall } from "~/components/svg/logo-small";
@@ -65,7 +66,7 @@ export function Navbar({ slug }: IProps) {
           <CreateAutomation />
           <Notifications />
         </div>
-        {/* <MainBreadcrumb /> */}
+        <MainBreadcrumb page={page === slug ? "Home" : page} slug={slug} />
       </div>
     )
   );
