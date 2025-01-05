@@ -1,7 +1,13 @@
 "use client";
 
-import { LogoSmall } from "~/components/svg/logo-small";
+import { HelpDuoToneWhite } from "~/icons";
 import { usePath } from "~/hooks/user-nav";
+
+import { SubscriptionPlan } from "~/components/global/subscription-plan";
+import { ClerkAuthState } from "~/components/global/clerk-auth-state";
+import { LogoSmall } from "~/components/svg/logo-small";
+import { Separator } from "~/components/ui/separator";
+import { UpgradeCard } from "./upgrade-card";
 import { Items } from "./items";
 
 interface IProps {
@@ -18,8 +24,25 @@ export function Sidebar({ slug }: IProps) {
           <LogoSmall />
         </div>
         <div className="flex flex-col py-3">
-          <Items />
+          <Items page={page} slug={slug} />
         </div>
+        <div className="px-16">
+          <Separator orientation="horizontal" className="bg-[#333336]" />
+        </div>
+        <div className="flex flex-col gap-y-5 px-3">
+          <div className="flex gap-x-2">
+            <ClerkAuthState />
+          </div>
+          <div className="flex gap-x-3">
+            <HelpDuoToneWhite />
+            <span className="text-[#9b9ca0]">Help</span>
+          </div>
+        </div>
+        <SubscriptionPlan type="FREE">
+          <div className="flex flex-1 flex-col justify-end">
+            <UpgradeCard />
+          </div>
+        </SubscriptionPlan>
       </div>
     </div>
   );

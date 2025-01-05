@@ -1,4 +1,4 @@
-export const HomeDuoToneWhite = () => {
+export function HomeDuoToneWhite() {
   return (
     <svg
       width="24"
@@ -19,4 +19,4 @@ export const HomeDuoToneWhite = () => {
       />
     </svg>
   );
-};
+}

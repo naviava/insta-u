@@ -1,4 +1,5 @@
 import { Sidebar } from "~/components/global/sidebar";
+import { Navbar } from "~/components/global/navbar";
 
 interface IProps {
   children: React.ReactNode;
@@ -11,7 +12,10 @@ export default function SlugLayout({ children, params }: IProps) {
       {/* Sidebar */}
       <Sidebar slug={params.slug} />
       {/* Navbar */}
-      {children}
+      <div className="lg:-pl-5 flex flex-col overflow-auto lg:ml-[250px] lg:pl-10">
+        <Navbar slug={params.slug} />
+        {children}
+      </div>
     </div>
   );
 }
