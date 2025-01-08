@@ -1,12 +1,16 @@
 import { Check } from "lucide-react";
+
 import { CreateAutomation } from "~/components/global/create-automation";
+import { AutomationList } from "~/components/global/automation-list";
 
 interface IProps {}
 
 export default function AutomationsPage({}: IProps) {
   return (
     <div className="grid grid-cols-1 gap-5 lg:grid-cols-6">
-      <div className="lg:col-span-4">Automation List</div>
+      <div className="lg:col-span-4">
+        <AutomationList />
+      </div>
       <div className="lg:col-span-2">
         <div className="flex flex-col gap-y-6 overflow-hidden rounded-xl border-[1px] border-in-active bg-background-80 p-5">
           <div>
