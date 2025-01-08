@@ -61,8 +61,8 @@ export function PaymentCard({ label, current, landing }: IProps) {
           <p className="mb-2 text-xl">Free</p>
         )}
 
-        {PLANS[label === "PRO" ? 1 : 0].features.map((feat, idx) => (
-          <p key={idx} className="mt-2 flex gap-2 text-muted-foreground">
+        {PLANS[label === "PRO" ? 1 : 0].features.map((feat, key) => (
+          <p key={key} className="mt-2 flex gap-2 text-muted-foreground">
             <CircleCheck className="text-indigo-500" />
             {feat}
           </p>
