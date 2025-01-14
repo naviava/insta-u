@@ -4,11 +4,11 @@ import { PAGE_BREADCRUMBS } from "~/constants/pages";
 import { usePath } from "~/hooks/user-nav";
 import { Menu } from "lucide-react";
 
+import { MainBreadcrumb } from "~/components/global/breadcrumbs/main-breadcrumb";
 import { SubscriptionPlan } from "~/components/global/subscription-plan";
 import { CreateAutomation } from "~/components/global/create-automation";
 import { UpgradeCard } from "~/components/global/sidebar/upgrade-card";
 import { ClerkAuthState } from "~/components/global/clerk-auth-state";
-import { MainBreadcrumb } from "~/components/global/main-breadcrumb";
 import { Notifications } from "~/components/global/notifications";
 import { Items } from "~/components/global/sidebar/items";
 import { LogoSmall } from "~/components/svg/logo-small";
