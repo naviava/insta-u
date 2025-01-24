@@ -1,12 +1,20 @@
+import { QueryClient } from "@tanstack/react-query";
+
 import { Sidebar } from "~/components/global/sidebar";
 import { Navbar } from "~/components/global/navbar";
+
+import { prefetchUserProfile } from "~/lib/react-query/prefetch";
 
 interface IProps {
   children: React.ReactNode;
   params: { slug: string };
 }
 
-export default function SlugLayout({ children, params }: IProps) {
+export default async function SlugLayout({ children, params }: IProps) {
+  const query = new QueryClient();
+
+  await prefetchUserProfile(query);
+
   return (
     <div className="p-3">
       {/* Sidebar */}
