@@ -2,11 +2,11 @@
 
 import { redirect } from "next/navigation";
 
-import { updateIntegration } from "~/actions/integrations";
+import { updateIntegration } from "~/actions/integrations/queries";
 import { currentUser } from "@clerk/nextjs/server";
 import { refreshToken } from "~/lib/fetch";
 
-import { findUser } from "./queries";
+import { createUser, findUser } from "./queries";
 
 export async function onCurrentUser() {
   const user = await currentUser();
@@ -37,8 +37,35 @@ export async function onBoardUser() {
         const today = new Date();
         const expireDate = today.setDate(today.getDate() + 60);
 
-        // const updateToken = await updateIntegration();
+        const updateToken = await updateIntegration({
+          token: refresh.access_token,
+          expiresAt: new Date(expireDate),
+          id: found.integrations[0].id,
+        });
+        if (!updateToken) console.log("Update token failed!");
       }
+      return {
+        status: 200,
+        data: {
+          firstname: found?.firstname,
+          lastname: found?.lastname,
+        },
+      };
     }
-  } catch (error) {}
+
+    const created = await createUser({
+      clerkId: user.id,
+      firstname: user.firstName || "",
+      lastname: user.lastName || "",
+      email: user.emailAddresses[0].emailAddress,
+    });
+
+    return {
+      status: 201,
+      data: created,
+    };
+  } catch (error) {
+    console.log(error);
+    return { status: 500 };
+  }
 }

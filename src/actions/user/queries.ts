@@ -18,3 +18,32 @@ export async function findUser(clerkId: string) {
     },
   });
 }
+
+interface ICreateUserProps {
+  clerkId: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+}
+export async function createUser({
+  clerkId,
+  email,
+  firstname,
+  lastname,
+}: ICreateUserProps) {
+  return await db.user.create({
+    data: {
+      clerkId,
+      firstname,
+      lastname,
+      email,
+      subscription: {
+        create: {},
+      },
+    },
+    select: {
+      firstname: true,
+      lastname: true,
+    },
+  });
+}
